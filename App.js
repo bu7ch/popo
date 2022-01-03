@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import Button from "./components/Button";
 import Heading from "./components/Heading";
+import TabBar from "./components/TabBar";
 import Input from "./components/TextInput";
 import TodoList from "./components/TodoList";
 
@@ -45,8 +46,11 @@ export default class App extends Component {
     todos = todos.filter(todo => todo.todoIndex !== todoIndex)
     this.setState({ todos });
   };
+  setType = (type) => {
+    this.setState({type})
+  }
   render() {
-    let { inputValue, todos } = this.state;
+    let { inputValue, todos, type } = this.state;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.content}>
@@ -56,11 +60,13 @@ export default class App extends Component {
             inputChange={(text) => this.inputChange(text)}
           />
           <TodoList 
+          type={type}
           toggleComplete={this.toggleComplete}
           deleteTodo={this.deleteTodo}
           todos={todos} />
           <Button submitTodo={this.submitTodo} />
         </ScrollView>
+        <TabBar type={type} setType={this.setType} />
       </View>
     );
   }
