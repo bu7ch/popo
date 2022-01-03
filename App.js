@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import Heading from './components/Heading'
+import Input from './components/TextInput'
 
 export default class App extends Component {
   state = {
@@ -13,6 +14,7 @@ export default class App extends Component {
       <View style ={styles.container}>
         <ScrollView style={styles.content}> 
         <Heading />
+        <Input />
          </ScrollView>
       </View>
     )
