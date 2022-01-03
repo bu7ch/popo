@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
+import Heading from './components/Heading'
 
 export default class App extends Component {
   state = {
@@ -10,7 +11,9 @@ export default class App extends Component {
   render() {
     return (
       <View style ={styles.container}>
-        <ScrollView style={styles.content}> TODOS </ScrollView>
+        <ScrollView style={styles.content}> 
+        <Heading />
+         </ScrollView>
       </View>
     )
   }
